@@ -32,4 +32,4 @@ i.e. the animation is updated by _'h(x)'_ every (say) 20 ms, after having receiv
 
 -----------------------------------------------------------------------------------------------------------------------
 
-_canvasApp2.js_ is an alternative provided for exprimentation/education. &nbsp; It also demonstrates a slightly different way to perform the iteration over time.
+_canvasApp2.js_ is an alternative representation of _canvasApp.js_ that utilises e.g. IIFEs. &nbsp; In particular it demonstrates a slightly different way to perform the iteration over time.
