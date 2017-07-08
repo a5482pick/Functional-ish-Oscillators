@@ -61,18 +61,19 @@ const theGeometry = (function ()   {
 
     return function (y) {
 
-        
+        const x = arguments[0];        
+
         //Set up the initial displacement.  'a' is the (displacement) amplitude.
-        const a = initialDisp / (y[2].eigen1 - y[2].eigen2);    
+        const a = initialDisp / (x[2].eigen1 - x[2].eigen2);    
     
     
         //Allow the difference in masses to be represented on screen by a corresponding difference in sizes.   
-        const radiusM1 = 20*Math.pow(y[1].m1,1/3);
-        const radiusM2 = 20*Math.pow(y[1].m2,1/3);
+        const radiusM1 = 20*Math.pow(x[1].m1,1/3);
+        const radiusM2 = 20*Math.pow(x[1].m2,1/3);
 
-        y.push({a:a, radiusM1:radiusM1, radiusM2:radiusM2});
+        x.push({a:a, radiusM1:radiusM1, radiusM2:radiusM2});
 
-        return y;           //Position x[3] for theGeometry(..).
+        return x;           //Position x[3] for theGeometry(..).
     }
 
 })();
@@ -87,8 +88,10 @@ const checkSubmit = (function()  {
 
     var k1match, k2match, k3match, m1match, m2match, k1, k2, k3, m1, m2;
 
-    return function (x)    {
+    return function (y)    {
 
+
+        const x = arguments[0];
 
     	//A draw request can be from either a user submission or a resizing.  Here we consider new user submitted values.  
         if (x[0].sessionStorage.getItem("resized") !== "1") {
@@ -156,7 +159,10 @@ const checkSubmit = (function()  {
 const eigenstate = (function()  {
 
 
-    return function (x)  {
+    return function (y)  {
+
+ 
+        const x = arguments[0];
   
         //Extract individual values from the passed object for clarity.
   	const k1 = x[1].k1;
@@ -212,7 +218,10 @@ const drawScreen = (function() {
 
     var t = 0;
                  
-    return function (x)  {
+    return function (y)  {
+
+  
+        const x = arguments[0];
         
         //Iterate over time.
         t =t +0.03;                                    
@@ -264,9 +273,11 @@ const imageData1 = (function() {
 
     var imgData, xPos, yPos, k1Spring;
 
-    return function (x)   {
+    return function (y)   {
 
    
+        const x = arguments[0];
+
     	const param = (2*Math.PI*20)/(x[4].x1Draw - x[3].radiusM1); 
 
       
@@ -306,8 +317,10 @@ const imageData2 = (function() {
 
     var imgData, xPos, yPos, k2Spring;
 
-    return function (x)   {
+    return function (y)   {
 
+ 
+        const x = arguments[0];
 
     	const x1Draw = x[4].x1Draw;
 
@@ -356,8 +369,10 @@ const imageData3 = (function()  {
 
     var imgData, xPos, yPos, k3Spring;  
 
-    return function (x)   {
+    return function (y)   {
 
+
+        const x = arguments[0];
 
         const x2Draw = x[4].x2Draw;
     
@@ -401,8 +416,10 @@ const imageData3 = (function()  {
 const drawMasses = (function()   {
 
 
-    return function (x)   {
+    return function (y)   {
 
+
+        const x = arguments[0];
 
         const context = x[4].context;
 
