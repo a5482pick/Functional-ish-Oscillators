@@ -18,15 +18,15 @@ The script plays loose with a few simple output operations: for example, functio
 
 _The animation in canvasApp.js is controlled by_:
 
-setInterval(h,20,g());
+<code>setInterval(h,20,g());</code>
 
 _where parameter t is periodically incremented in:_
 
-function h(x)  {drawMasses( imageData3( imageData2( imageData1( drawScreen( x, t ) ) ) ) );}
+<code>function h(x)  {drawMasses( imageData3( imageData2( imageData1( drawScreen( x, t ) ) ) ) );}</code>
 
 _and:_
 
-function g()  { return theGeometry( eigenstate( checkSubmit( setUpCanvas( ) ) ) );}
+<code>function g()  { return theGeometry( eigenstate( checkSubmit( setUpCanvas( ) ) ) );}</code>
 
 
 i.e. the animation is updated by _'h(x)'_ every (say) 20 ms, after having received the initial conditions provided by _'g()'_. 
